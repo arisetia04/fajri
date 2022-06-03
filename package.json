@@ -1,0 +1,25 @@
+{
+  "name": "ari-and-teti",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/base-64": "^1.0.0",
+    "@types/utf8": "^3.0.1",
+    "base-64": "^1.0.0",
+    "next": "12.0.4",
+    "next-seo": "^4.28.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-use-copy-to-clipboard": "^1.0.1",
+    "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "7",
+    "eslint-config-next": "12.0.4"
+  }
+}
