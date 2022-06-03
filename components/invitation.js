@@ -3,54 +3,24 @@ import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 // @ts-ignore
 import IMAGE_1 from "../public/images/1.jpg";
-import base64 from "base-64";
-import utf8 from "utf8";
+
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 
-export const getServerSideProps = async (context) => {
-  const router = useRouter();
-
-  let setName = ""
-  let isError = false
-  
-  const { pid } = router.query;
-
-        if (!pid) return;
-
-        try {
-            // @ts-ignore
-            const d = base64.decode(pid);
-
-            let n = utf8.decode(d);
-
-            setName = n;
-        } catch (ex) {
-            isError = true
-            setName = "Your Name ?";
-        }
-
-  return {
-    props: {
-      setName,
-      isError
-    },
-  };
-};
-
 const InvitationContent = (props) => {
-        
+    useEffect(() => {
+        console.log("PID >> ", props);
+    }, [props]);
     return (
         <>
-          
             <NextSeo
                 title={`Undangan Untuk ${
-                    !props.setName ? "Kamu" : props.setName
+                    !props.nameData ? "Kamu" : props?.nameData
                 } | Fajri &amp; Purni`}
                 description='Dengan Memohon Rahmat dan Ridho Allah SWT, kami mengundang Bapak / Ibu / Sodara / Sodari dalam acara resepsi pernikahan kami'
                 openGraph={{
                     title: `Undangan Untuk ${
-                        !props.setName ? "Kamu" : props.setName
+                        !props.nameData ? "Kamu" : props?.nameData
                     } | Fajri &amp; Purni`,
                     description:
                         "Dengan Memohon Rahmat dan Ridho Allah SWT, kami mengundang Bapak / Ibu / Sodara / Sodari dalam acara resepsi pernikahan kami"
@@ -96,7 +66,7 @@ const InvitationContent = (props) => {
                                 borderRadius: "10px",
                                 marginBottom: "10px"
                             }}>
-                            {props.setName}
+                            {props?.nameData}
                         </p>
                         <small style={{ fontSize: "10px" }}>
                             Mohon Maaf jika terdapat kesalahan pada nama atau
@@ -120,7 +90,7 @@ const InvitationContent = (props) => {
                     </div>
                 </div>
             </div>
-            {!props.isError ? (
+            {!props?.nameError ? (
                 ""
             ) : (
                 <div
