@@ -1,16 +1,7 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { GetServerSideProps } from "next";
-// @ts-ignore
 import IMAGE_1 from "../public/images/1.jpg";
-
-import Head from "next/head";
 import { NextSeo } from "next-seo";
 
 const InvitationContent = (props) => {
-    useEffect(() => {
-        console.log("PID >> ", props);
-    }, [props]);
     return (
         <>
             <NextSeo

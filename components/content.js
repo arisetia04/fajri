@@ -1,37 +1,20 @@
-// @ts-ignore
-import { useEffect, useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
-// @ts-ignore
 import IMAGE_1 from "../public/images/1.jpg";
-// @ts-ignore
 import IMAGE_2 from "../public/images/2.png";
-// @ts-ignore
 import IMAGE_4 from "../public/images/4.jpg";
-// @ts-ignore
 import IMAGE_6 from "../public/images/6.jpg";
-// @ts-ignore
 import IMAGE_7 from "../public/images/7.jpg";
-// @ts-ignore
 import IMAGE_8 from "../public/images/8.jpg";
-// @ts-ignore
 import IMAGE_9 from "../public/images/9.jpg";
-// @ts-ignore
 import IMAGE_10 from "../public/images/10.jpg";
-// @ts-ignore
 import IMAGE_11 from "../public/images/11.jpg";
-// @ts-ignore
 import IMAGE_12 from "../public/images/12.png";
-// @ts-ignore
 import IMAGE_13 from "../public/images/13.png";
-// @ts-ignore
 import IMAGE_14 from "../public/images/14.png";
-// @ts-ignore
 import IMAGE_15 from "../public/images/15.png";
-// @ts-ignore
 import IMAGE_17 from "../public/images/17.jpg";
 
 const MainContent = () => {

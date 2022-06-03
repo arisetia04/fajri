@@ -4,8 +4,6 @@ import utf8 from "utf8";
 
 export const getServerSideProps = async (context) => {
     var pid = context.query.pid;
-
-    console.log("PID Static >> ", pid);
     let setName = "";
     let isError = false;
 
