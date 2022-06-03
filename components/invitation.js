@@ -19,7 +19,8 @@ export const getServerSideProps = async (context) => {
         if (!pid) return;
 
         try {
-            const d = base64.decode(pid as string);
+            // @ts-ignore
+            const d = base64.decode(pid);
 
             let n = utf8.decode(d);
 
@@ -37,7 +38,7 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-const InvitationContent = (props:{setName:string,  isError:boolean}) => {
+const InvitationContent = (props) => {
         
     return (
         <>
