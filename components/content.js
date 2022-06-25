@@ -16,8 +16,33 @@ import IMAGE_13 from "../public/images/13.png";
 import IMAGE_14 from "../public/images/14.png";
 import IMAGE_15 from "../public/images/15.png";
 import IMAGE_17 from "../public/images/17.jpg";
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import { useCopyToClipboard } from "react-use-copy-to-clipboard";
 
 const MainContent = () => {
+    const [show, setShow] = useState(false);
+
+    const [rekBCA, setBCA] = useState("2040276389");
+    const [rekDKI, setDKI] = useState("61123077747");
+    const [copyRekBCA, setCopyBCA] = useState("");
+    const [copyRekDKI, setCopyDKI] = useState("");
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const copyBankBCA = useCopyToClipboard(
+        rekBCA,
+        () => setCopyBCA("✔ Berhasil Di Copy"),
+        () => setCopyBCA("✖ Gagal Di Copy")
+    );
+
+    const copyBankDKI = useCopyToClipboard(
+        rekDKI,
+        () => setCopyDKI("✔ Berhasil Di Copy"),
+        () => setCopyDKI("✖ Gagal Di Copy")
+    );
+
     return (
         <>
             <Head>
@@ -419,7 +444,9 @@ const MainContent = () => {
                             </div>
                         </div>
                         <div className='col-sm-4  text-center'>
-                            <h2 className='heavy mt-20'>SDIT Darojatul Ulum</h2>
+                            <h2 className='heavy mt-20'>
+                                SDIT Darojaatul Uluum
+                            </h2>
                         </div>
                         <div className='col-sm-4  text-center'>
                             <h2 className='heavy mt-20'>
@@ -430,6 +457,32 @@ const MainContent = () => {
                             <h2 className='heavy mt-20'>
                                 Karang taruna Kel. Limo
                             </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section
+                className='accom pt-120'
+                style={{ background: "aliceblue" }}>
+                <div className='container'>
+                    <div className='row d-flex justify-content-center'>
+                        <div className='col-sm-9 text-center  mb-100'>
+                            <p className='mb-5'>
+                                Merupakan suatu kehormatan dan kebahagiaan bagi
+                                kami apabila Bapak/Ibu/Saudara/I berkenan hadir
+                                dan memberikan do’a restu kepada kedua mempelai.
+                                Atas kehadiran dan do’a restunya kami ucapkan
+                                terimakasih Wassalamu’alaikum Warahmatullahi
+                                Wabarakatuh.
+                            </p>
+                            <br />
+                            <br />
+                            <button
+                                className='btn btn-lg'
+                                style={{ background: "#b0f2d3" }}
+                                onClick={() => handleShow()}>
+                                <i className='icon-gift'></i> Kirim Hadiah
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -495,6 +548,70 @@ const MainContent = () => {
                     </div>
                 </div>
             </section>
+            <Modal
+                size='lg'
+                show={show}
+                onHide={handleClose}
+                style={{
+                    opacity: "1!important"
+                }}>
+                <Modal.Header
+                    closeButton
+                    style={{ background: "aliceblue" }}></Modal.Header>
+                <Modal.Body style={{ background: "aliceblue" }}>
+                    <div className='row p-5'>
+                        <div className='col-md-12 text-center'>
+                            <h2>Kirim Hadiah</h2>
+                            <p>
+                                Merupakan suatu kehormatan dan kebahagiaan bagi
+                                kami apabila Bapak/Ibu/Saudara/I berkenan hadir
+                                dan memberikan do’a restu kepada kedua mempelai.
+                                Atas kehadiran dan do’a restunya kami ucapkan
+                                terimakasih Wassalamu’alaikum Warahmatullahi
+                                Wabarakatuh.
+                            </p>
+                        </div>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                        <div
+                            className='text-center m-3 bg-white'
+                            style={{
+                                boxShadow: "rgb(188 192 213) 2px 2px 6px",
+                                borderRadius: "5px",
+                                padding: "10px"
+                            }}>
+                            <img src='/images/bca.jpg' />
+                            <span>a/n Muhammad Suri Hafidz Al Fajri</span>
+                            <p>{rekBCA}</p>
+                            <button
+                                className='btn btn-sm'
+                                style={{ background: "#b0f2d3" }}
+                                ref={copyBankBCA}>
+                                &#128458; Salin Rekening
+                            </button>
+                            <p style={{ fontSize: "10px" }}>{copyRekBCA}</p>
+                        </div>
+                        <div
+                            className='text-center m-3 bg-white'
+                            style={{
+                                boxShadow: "rgb(188 192 213) 2px 2px 6px",
+                                borderRadius: "5px",
+                                padding: "10px"
+                            }}>
+                            <img src='/images/dki.jpg' />
+                            <span>a/n Muhammad Suri Hafidz Al Fajri</span>
+                            <p>{rekDKI}</p>
+                            <button
+                                className='btn btn-sm'
+                                style={{ background: "#b0f2d3" }}
+                                ref={copyBankDKI}>
+                                &#128458; Salin Rekening
+                            </button>
+                            <p style={{ fontSize: "10px" }}>{copyRekDKI}</p>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     );
 };
